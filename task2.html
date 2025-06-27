@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intermediate HTML, CSS, JS Task</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    form {
+      background: #f4f4f4;
+      padding: 20px;
+      max-width: 400px;
+      border-radius: 8px;
+    }
+    input[type="text"], input[type="email"] {
+      width: 100%;
+      padding: 8px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    input[type="submit"] {
+      background: green;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .box {
+      flex: 1 1 300px;
+      background: #e0f7fa;
+      padding: 20px;
+    }
+    #todo-list li {
+      margin: 5px 0;
+    }
+    @media (max-width: 600px) {
+      .container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Contact Form</h2>
+  <form id="contactForm">
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="email" id="email" placeholder="Your Email" required>
+    <input type="submit" value="Submit">
+    <p id="formMsg" style="color: red;"></p>
+  </form>
+
+  <h2>Responsive Layout</h2>
+  <div class="container">
+    <div class="box">Navigation (Flexbox)</div>
+    <div class="box">Main Content (CSS Grid or Flex)</div>
+  </div>
+
+  <h2>To-Do List</h2>
+  <input type="text" id="taskInput" placeholder="Add a task">
+  <button onclick="addTask()">Add</button>
+  <ul id="todo-list"></ul>
+
+  <script>
+    // Form Validation
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const msg = document.getElementById("formMsg");
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!name || !emailRegex.test(email)) {
+        msg.textContent = "Please enter a valid name and email.";
+      } else {
+        msg.style.color = "green";
+        msg.textContent = "Form submitted successfully!";
+        document.getElementById("contactForm").reset();
+      }
+    });
+
+    // To-Do List
+    function addTask() {
+      const taskInput = document.getElementById("taskInput");
+      const task = taskInput.value.trim();
+      if (task) {
+        const li = document.createElement("li");
+        li.textContent = task;
+        const btn = document.createElement("button");
+        btn.textContent = "Remove";
+        btn.style.marginLeft = "10px";
+        btn.onclick = () => li.remove();
+        li.appendChild(btn);
+        document.getElementById("todo-list").appendChild(li);
+        taskInput.value = "";
+      }
+    }
+  </script>
+
+</body>
+</html>
