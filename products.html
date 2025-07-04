@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product Filter</title>
+  <style>
+    .product { border: 1px solid #ccc; padding: 10px; margin: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Products</h1>
+
+  <label for="category">Filter by Category:</label>
+  <select id="category" onchange="renderProducts()">
+    <option value="all">All</option>
+    <option value="electronics">Electronics</option>
+    <option value="fashion">Fashion</option>
+  </select>
+
+  <label for="sort">Sort by Price:</label>
+  <select id="sort" onchange="renderProducts()">
+    <option value="asc">Low to High</option>
+    <option value="desc">High to Low</option>
+  </select>
+
+  <div id="products"></div>
+
+  <script>
+    const productData = [
+      { name: "Laptop", category: "electronics", price: 500 },
+      { name: "Shirt", category: "fashion", price: 30 },
+      { name: "Phone", category: "electronics", price: 300 },
+      { name: "Jeans", category: "fashion", price: 50 }
+    ];
+
+    function renderProducts() {
+      const category = document.getElementById("category").value;
+      const sort = document.getElementById("sort").value;
+
+      let filtered = productData.filter(p => category === "all" || p.category === category);
+      filtered.sort((a, b) => sort === "asc" ? a.price - b.price : b.price - a.price);
+
+      const container = document.getElementById("products");
+      container.innerHTML = filtered.map(p => 
+        `<div class="product"><h3>${p.name}</h3><p>${p.category} - $${p.price}</p></div>`
+      ).join("");
+    }
+
+    renderProducts();
+  </script>
+</body>
+</html>

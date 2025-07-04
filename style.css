@@ -1,45 +1,11 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: Arial;
   text-align: center;
-  padding: 20px;
 }
 
-.quiz, .api-section {
-  border: 2px solid #00796B;
-  padding: 20px;
-  margin: 20px auto;
-  max-width: 500px;
-  border-radius: 10px;
-  background-color: #e0f2f1;
-}
-
-button {
+nav a {
   margin: 10px;
-  padding: 10px 20px;
-  background-color: #00796B;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-button:hover {
-  background-color: #004d40;
-}
-
-/* ✅ Media Query for smaller devices */
-@media screen and (max-width: 600px) {
-  h1 {
-    font-size: 24px;
-  }
-
-  .quiz, .api-section {
-    padding: 10px;
-    margin: 10px;
-  }
-
-  button {
-    width: 100%;
-    margin: 5px 0;
-  }
+  text-decoration: none;
+  color: #00796B;
+  font-weight: bold;
 }
