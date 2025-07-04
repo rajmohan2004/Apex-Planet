@@ -1,24 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My First Webpage</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Styling & JavaScript</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Welcome to My Webpage</h1>
-    <p>This is a simple webpage built using HTML.</p>
+  <h1>Responsive Quiz & API Data</h1>
 
-    <h2>About Me</h2>
-    <p>I am learning web development!</p>
+  <!-- Interactive Quiz -->
+  <div class="quiz">
+    <h2>Quiz: What is the capital of France?</h2>
+    <button onclick="checkAnswer('a')">A. Berlin</button>
+    <button onclick="checkAnswer('b')">B. Madrid</button>
+    <button onclick="checkAnswer('c')">C. Paris</button>
+    <p id="quiz-result"></p>
+  </div>
 
-    <img src="sample image.jpg" alt="Sample Image" width="300" />
+  <!-- API Data Fetch -->
+  <div class="api-section">
+    <h2>Random Joke Generator</h2>
+    <button onclick="getJoke()">Get a Joke</button>
+    <p id="joke"></p>
+  </div>
 
-    <p>Visit my favorite site: <a href="https://www.google.com" target="_blank">Google</a></p>
-
-    <button onclick="showMessage()">Click Me!</button>
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
